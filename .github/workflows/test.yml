@@ -12,5 +12,7 @@ jobs:
         uses: actions/checkout@v6
       - name: Build and run
         run: |
+          docker build -t test .
+          docker run --security-opt seccomp=unconfined test
           cc test.c
           ./a.out
